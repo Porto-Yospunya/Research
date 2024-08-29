@@ -21,7 +21,7 @@ nav .container-btn a {
     font-weight: 400;
 }
 
-nav .container-btn .signin {
+nav .container-btn .signin, nav .container-btn .new {
     color: var(--black);
     background-color: var(--white);
     border-radius: 10%;
