@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/navbar-style.css" type="text/css">
+    <link rel="stylesheet" href="/css/edit-style.css" type="text/css">
+    <link rel="stylesheet" href="/css/form-field-style.css" type="text/css">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('./../components/navbar.ejs') %>
+    <h1>Edit</h1>
+    <form action="/admin/<%= person.id %>?_method=PUT" method="POST">
+        <%- include('./../components/form_field.ejs') %>
+    </form> 
+</body>
+</html>

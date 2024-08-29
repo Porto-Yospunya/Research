@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/login-style.css" type="text/css">
+    <link rel="stylesheet" href="/css/navbar-style.css" type="text/css">
+    <title>Sgin In</title>
+</head>
+<body>
+    <%- include('./../components/navbar.ejs') %>
+    <div class="container-alert">
+        <% if (messages.length > 0) { %>
+            <div class="alert"><%= messages %></div>
+        <% } %>
+    </div>
+    <h1>Sign In</h1>
+    <hr>
+    <form action="/user/sign-in" method="POST">
+        <div class="form-group">
+            <label for="email"></label>
+            <input required type="email" name="email" id="email" placeholder="Email Address">
+        </div>
+        
+        <div class="form-group">
+            <label for="password"></label>
+            <input required type="password" name="password" id="username" placeholder="Password">
+        </div>
+        
+        <div class="container-btn">
+            <a href="/user">Cancel</a>
+            <button type="submit">Sign In</button>
+        </div>
+    </form>
+</body>
+</html>

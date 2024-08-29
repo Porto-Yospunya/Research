@@ -1,0 +1,28 @@
+@import './colors-fonts.css';
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--gray);
+    padding: 20px 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--white);
+    font-family: var(--font-kanit);
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+nav .container-btn a {
+    padding: 10px 20px;
+    border: 1px solid var(--white);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--white);
+    font-family: var(--font-kanit);
+    font-size: 1rem;
+    font-weight: 400;
+}

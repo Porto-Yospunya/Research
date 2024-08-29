@@ -1,0 +1,15 @@
+<nav>
+    <% if (user) { %>
+        <a href="/admin">Research</a>
+        <div class="container-btn">
+            <a href="/admin/new">New</a>
+            <a href="/user/logout">Logout</a>
+        </div> 
+    <% } else { %>
+        <a href="/user">Research</a>
+        <div class="container-btn">
+            <a href="/user/sign-up">Sign Up</a>
+            <a href="/user/sign-in">Login</a>
+        </div>
+    <% } %>
+</nav>
