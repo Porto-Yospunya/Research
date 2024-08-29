@@ -1,1 +1,130 @@
 @import './colors-fonts.css';
+
+section {
+    display: grid;
+    text-align: center;
+    justify-content: center;
+}
+
+section h1 {
+    font-size: 2rem;
+}
+
+form {
+    padding: 40px;
+    display: flex; 
+    flex-direction: column;
+    border: 1px solid var(--black);
+    box-shadow: 0 2px 1px 0 var(--black);
+    border-radius: 20px;
+}
+
+.form-image {
+    display: grid;
+    justify-content: center;
+}
+
+.form-image img {
+    width: 256px;
+    height: 256px;
+    border: 1px solid var(--black);
+    box-shadow: 0 2px 1px 0 var(--black);
+    border-radius: 20px;
+}
+
+.form-image input {
+    margin: 20px 0;
+    width: 256px;
+}
+
+.form-name input {
+    margin: 10px;
+    font-size: 1.2rem;
+    width: 256px;
+    border: none;
+    border-bottom: 2px solid var(--black);
+}
+
+.form-workplace textarea {
+    resize: none;
+    margin: 10px;
+    font-size: .8rem;
+    width: 256px;
+    border: none;
+    border-bottom: 2px solid var(--black);
+}
+
+.form-contact textarea {
+    resize: none;
+    margin: 10px;
+    font-size: .8rem;
+    width: 256px;
+    border: none;
+    border-bottom: 2px solid var(--black);
+}
+
+form .container-btn {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+form a {
+    text-decoration: none;
+    padding: 10px 20px;
+    background-color: var(--red);
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--black);
+    cursor: pointer;
+}
+
+form button {
+    padding: 10px 20px;
+    border: none;
+    background-color: var(--green);
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--black);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+    form {
+        padding: 30px;
+    }
+
+    .form-image input {
+        margin: 10px 0;
+        width: 128px;
+    }
+
+    .form-image img {
+        width: 128px;
+        height: 128px;
+    }
+
+    form a, form button {
+        padding: 6px 12px;
+        border-radius: 8px;
+        font-size: .8rem;
+    }
+
+    section h1 {
+        font-size: 1.2rem;
+    }
+
+    .form-name input {
+        margin: 5px 0;
+        width: 128px;
+    }
+
+    .form-workplace textarea, .form-contact textarea {
+        margin: 5px 0;
+        width: 128px;
+        font-size: .8rem;
+    }
+}   

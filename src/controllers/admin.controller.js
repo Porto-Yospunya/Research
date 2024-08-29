@@ -33,7 +33,7 @@ exports.adminEdit = async (req, res) => {
     person.name = req.body.name;
     person.workplace = req.body.workplace;
     person.contact = req.body.contact;
-
+    
     try {
         person = await person.save();
         console.log("Successfully!");

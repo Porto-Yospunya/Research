@@ -5,31 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/home-style.css" type="text/css">
     <link rel="stylesheet" href="/css/navbar-style.css" type="text/css">
-    <title>Document</title>
+    <title>Research</title>
 </head>
 <body>
     <%- include('./../components/navbar.ejs') %>
-    <h1>Home</h1>
-    <% persons.forEach(person => { %>
-        <div class="container-box">
-            <div class="name">
-                <h3><%= person.name %></h3>
-            </div>
-            <div class="workplace">
-                <p><%= person.workplace %></p>
-            </div>
-            <div class="contact">
-                <p><%= person.contact %></p>
-            </div>
-            <% if (user) { %>
-                <div class="containr-btn">
-                    <a href="/admin/edit/<%= person.id %>">Edit</a>
-                    <form action="/admin/home/<%= person.id %>?_method=DELETE" method="POST">
-                        <button type="submit">Delete</button>
-                    </form>
+    <section>
+        <% persons.forEach(person => { %>
+            <div class="container-box">
+                <div class="image">
+                    <img src="/assets/new.png">
                 </div>
-            <% } %>
-        </div>
-    <% }) %>
+                <div class="name">
+                    <h3><%= person.name %></h3>
+                </div>
+                <div class="workplace">
+                    <p><%= person.workplace %></p>
+                </div>
+                <div class="contact">
+                    <p><%= person.contact %></p>
+                </div>
+                <% if (user) { %>
+                    <div class="container-btn">
+                        <a class="edit-btn" href="/admin/edit/<%= person.id %>">Edit</a>
+                        <form action="/admin/home/<%= person.id %>?_method=DELETE" method="POST">
+                            <button class="delete-btn" type="submit">Delete</button>
+                        </form>
+                    </div>
+                <% } %>
+            </div>
+        <% }) %>
+    </section>
 </body>
 </html>

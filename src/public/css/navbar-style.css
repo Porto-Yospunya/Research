@@ -11,18 +11,37 @@ nav {
 nav a {
     text-decoration: none;
     color: var(--white);
-    font-family: var(--font-kanit);
     font-weight: 600;
     font-size: 2rem;
 }
 
 nav .container-btn a {
     padding: 10px 20px;
-    border: 1px solid var(--white);
-    border-radius: 10px;
-    text-decoration: none;
-    color: var(--white);
-    font-family: var(--font-kanit);
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 400;
 }
+
+nav .container-btn .signin {
+    color: var(--black);
+    background-color: var(--white);
+    border-radius: 10%;
+}
+
+@media screen and (max-width: 480px) {
+    nav {
+        padding: 15px 10px;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: var(--white);
+        font-weight: 600;
+        font-size: 1.2rem;
+    }
+    
+    nav .container-btn a {
+        padding: 6px 8px;
+        font-size: .8rem;
+        font-weight: 400;
+    }
+}   

@@ -1,8 +1,102 @@
 @import './colors-fonts.css';
 
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+section {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
 }
 
+.container-box {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: 10px 30px;
+    padding: 25px;
+    box-shadow: 0 2px 4px 0 var(--black);
+    border-radius: 20px;
+}
+
+img {
+    border: 1px solid var(--black);
+    box-shadow: 0 2px 1px 0 var(--black);
+    border-radius: 20px;
+    width: 256px;
+    height: 256px;
+}
+
+.name h3 {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 2rem;
+}
+
+.workplace p {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.contact p {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+section .container-btn {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.edit-btn {
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: var(--green);
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--black);
+}
+
+.delete-btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: var(--red);
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--black);
+    cursor: pointer;
+}
+
+.edit-btn:hover, .delete-btn:hover {
+    transition: 300ms;
+    transform: scale(1.05);
+}
+
+/* img:hover {
+    transition: 300ms;
+    transform: scale(1.05);
+} */
+
+@media screen and (max-width: 480px) {
+    img {
+        width: 128px;
+        height: 128px;
+    }
+
+    .edit-btn, .delete-btn {
+        padding: 6px 12px;
+        border-radius: 8px;
+        font-size: .8rem;
+    }
+
+    .container-box h3 {
+        font-size: 1rem;
+    }
+
+    .container-box p {
+        font-size: .8rem;
+    }
+}   

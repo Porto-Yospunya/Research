@@ -4,6 +4,15 @@
     --white: #ffffff;
     --black: #000000;
     --gray: #2e2e2e;
+    --red: #f85858;
+    --green: #53f075;
 
     --font-kanit: "Kanit", sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: var(--font-kanit);
 }

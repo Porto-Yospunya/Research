@@ -10,9 +10,11 @@
 </head>
 <body>
     <%- include('./../components/navbar.ejs') %>
-    <h1>Edit</h1>
-    <form action="/admin/home/<%= person.id %>?_method=PUT" method="POST">
-        <%- include('./../components/form_field.ejs') %>
-    </form> 
+    <section>
+        <h1>Edit</h1>
+        <form action="/admin/home/<%= person.id %>?_method=PUT" method="POST">
+            <%- include('./../components/form_field.ejs') %>
+        </form> 
+    </section>
 </body>
 </html>

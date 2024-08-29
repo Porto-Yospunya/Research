@@ -2,14 +2,14 @@
     <% if (user) { %>
         <a href="/admin">Research</a>
         <div class="container-btn">
-            <a href="/admin/new">New</a>
-            <a href="/user/logout">Logout</a>
+            <a class="new" href="/admin/new">New</a>
+            <a class="signout" href="/user/logout">Logout</a>
         </div> 
     <% } else { %>
         <a href="/user">Research</a>
         <div class="container-btn">
-            <a href="/user/sign-up">Sign Up</a>
-            <a href="/user/sign-in">Login</a>
+            <a class="signin" href="/user/sign-in">Login</a>
+            <a class="signup" href="/user/sign-up">Sign Up</a>
         </div>
     <% } %>
 </nav>

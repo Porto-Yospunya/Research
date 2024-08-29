@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/login-style.css" type="text/css">
+    <link rel="stylesheet" href="/css/register-login-style.css" type="text/css">
     <link rel="stylesheet" href="/css/navbar-style.css" type="text/css">
     <title>Sgin In</title>
 </head>
@@ -14,23 +14,26 @@
             <div class="alert"><%= messages %></div>
         <% } %>
     </div>
-    <h1>Sign In</h1>
-    <hr>
-    <form action="/user/sign-in" method="POST">
-        <div class="form-group">
-            <label for="email"></label>
-            <input required type="email" name="email" id="email" placeholder="Email Address">
+    <section>
+        <div class="container">
+            <h1>Login</h1>
+            <form action="/user/sign-in" method="POST">
+                <div class="form-group">
+                    <label for="email"></label>
+                    <input required type="email" name="email" id="email" placeholder="Email Address">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password"></label>
+                    <input required type="password" name="password" id="username" placeholder="Password">
+                </div>
+                
+                <div class="container-btn">
+                    <button type="submit" id="sign-in">Sign In</button>
+                </div>
+            </form>
+            <p>Don't have an account? <a href="/user/sign-up">Sign Up</a></p>
         </div>
-        
-        <div class="form-group">
-            <label for="password"></label>
-            <input required type="password" name="password" id="username" placeholder="Password">
-        </div>
-        
-        <div class="container-btn">
-            <a href="/user">Cancel</a>
-            <button type="submit">Sign In</button>
-        </div>
-    </form>
+    </section>
 </body>
 </html>
