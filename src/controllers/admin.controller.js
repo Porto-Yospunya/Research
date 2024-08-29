@@ -9,34 +9,44 @@ exports.editPage = async (req, res) => {
     res.render('admin/edit', { person: person });
 }
 
-exports.adminNew = async (req, res, next) => {
+exports.adminNew = async (req, res) => {
     req.person = new Person();
-    next();
-}, savePersonAndRedirect();
+    let person = req.person;
+    person.name = req.body.name;
+    person.workplace = req.body.workplace;
+    person.contact = req.body.contact;
 
-exports.adminEdit = async (req, res, next) => {
-    req.person = await Person.findById(req.params.id);
-    next();
-}, savePersonAndRedirect();
+    try {
+        person = await person.save();
+        console.log("Successfully!");
+        res.redirect('/admin');
+    } catch (error) {
+        console.log(error);
+    }
 
-exports.adminDelete = async (req, res) => {
-    await Person.findByIdAndDelete(req.params.id)
-    res.redirect('/admin');
+    console.log("New successfully!");
 }
 
-function savePersonAndRedirect() {
-    return async (req, res) => {
-        let person = req.person;
-        person.name = req.body.name;
-        person.workplace = req.body.workplace;
-        person.contact = req.body.contact;
+exports.adminEdit = async (req, res) => {
+    req.person = await Person.findById(req.params.id);
+    let person = req.person;
+    person.name = req.body.name;
+    person.workplace = req.body.workplace;
+    person.contact = req.body.contact;
 
-        try {
-            person = await person.save();
-            console.log("Successfully!");
-            res.redirect('/admin');
-        } catch (error) {
-            console.log(error);
-        }
+    try {
+        person = await person.save();
+        console.log("Successfully!");
+        res.redirect('/admin');
+    } catch (error) {
+        console.log(error);
     }
+
+    console.log("Edit successfully!");
+}
+
+exports.adminDelete = async (req, res) => {
+    await Person.findByIdAndDelete(req.params.id);
+    console.log("Delete successfully!");
+    res.redirect('/admin');
 }
