@@ -15,8 +15,21 @@ exports.adminNew = async (req, res) => {
     person.name = req.body.name;
     person.workplace = req.body.workplace;
     person.contact = req.body.contact;
+    
 
     try {
+        if (!req.workplace) {
+            // person.workplace = "none";
+        }
+        if (!req.contact) {
+            // person.contact = "none";
+        }
+
+        if (!req.file) {
+            console.log("Failed!");
+        }
+        person.image = req.file.path;
+        
         person = await person.save();
         console.log("Successfully!");
         res.redirect('/admin');
@@ -35,6 +48,19 @@ exports.adminEdit = async (req, res) => {
     person.contact = req.body.contact;
     
     try {
+        if (!req.workplace) {
+            // person.workplace = "none";
+        }
+        if (!req.contact) {
+            // person.contact = "none";
+        }
+
+        if (!req.file) {
+            console.log("Failed!")
+        }
+        person.image = req.file.path;
+        console.log(person.image);
+
         person = await person.save();
         console.log("Successfully!");
         res.redirect('/admin');
