@@ -18,6 +18,11 @@ section {
     border-radius: 20px;
 }
 
+.image {
+    display: flex;
+    justify-content: center;
+}
+
 img {
     border: 1px solid var(--black);
     box-shadow: 0 2px 1px 0 var(--black);
