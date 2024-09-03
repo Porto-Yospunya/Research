@@ -10,27 +10,16 @@ exports.editPage = async (req, res) => {
 }
 
 exports.adminNew = async (req, res) => {
-    req.person = new Person();
-    let person = req.person;
-    person.name = req.body.name;
-    person.workplace = req.body.workplace;
-    person.contact = req.body.contact;
-    
-
     try {
-        if (!req.workplace) {
-            // person.workplace = "none";
-        }
-        if (!req.contact) {
-            // person.contact = "none";
-        }
+        const { name, workplace, contact } = req.body;
 
-        if (!req.file) {
-            console.log("Failed!");
-        }
-        person.image = req.file.path;
-        
-        person = await person.save();
+        const person = new Person({
+            name: name,
+            workplace: workplace,
+            contact: contact
+        });
+
+        await person.save();
         console.log("Successfully!");
         res.redirect('/admin');
     } catch (error) {
@@ -40,29 +29,16 @@ exports.adminNew = async (req, res) => {
     console.log("New successfully!");
 }
 
-exports.adminEdit = async (req, res) => {
-    req.person = await Person.findById(req.params.id);
-    let person = req.person;
-    person.name = req.body.name;
-    person.workplace = req.body.workplace;
-    person.contact = req.body.contact;
-    
+exports.adminEdit = async (req, res) => { 
     try {
-        if (!req.workplace) {
-            // person.workplace = "none";
-        }
-        if (!req.contact) {
-            // person.contact = "none";
-        }
+        const { name, workplace, contact } = req.body;
 
-        if (!req.file) {
-            console.log("Failed!")
-        }
-        person.image = req.file.path;
-        console.log(person.image);
+        await Person.findByIdAndUpdate(req.params.id, {
+            name: name,
+            workplace: workplace,
+            contact: contact
+        });
 
-        person = await person.save();
-        console.log("Successfully!");
         res.redirect('/admin');
     } catch (error) {
         console.log(error);

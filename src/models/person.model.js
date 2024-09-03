@@ -12,11 +12,6 @@ const personSchema = new mongoose.Schema({
     contact: {
         type: String,
         required: false,
-    },
-    image: {
-        type: String,
-        required: false,
-        default: "uploads\\6e00ec8d81cd689b311bbe7bd37c58c6"
     }
 });
 
