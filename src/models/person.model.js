@@ -12,7 +12,7 @@ const personSchema = new mongoose.Schema({
     contact: {
         type: String,
         required: false,
-    }
+    },
 });
 
 

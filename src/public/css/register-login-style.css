@@ -61,6 +61,14 @@ form .container-btn button {
     font-weight: 600;
 }
 
+.alert {
+    background-color: var(--red);
+    color: var(--white);
+    text-align: center;
+    padding: 20px;
+    font-size: 1.5rem;
+}
+
 @media screen and (max-width: 480px) {
     .container {
         padding: 20px;

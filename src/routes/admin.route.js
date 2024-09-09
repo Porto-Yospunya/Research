@@ -4,11 +4,7 @@ const router = express.Router();
 const adminController = require('./../controllers/admin.controller');
 const { validateToken } = require('./../middleware/auth');
 
-router.get("/new", validateToken, adminController.newPage);
-
 router.get("/edit/:id", validateToken, adminController.editPage);
-
-router.post("/home", validateToken, adminController.adminNew);
 
 router.put("/home/:id", validateToken, adminController.adminEdit);
 

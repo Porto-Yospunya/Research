@@ -6,12 +6,13 @@
     <link rel="stylesheet" href="/css/navbar-style.css" type="text/css">
     <link rel="stylesheet" href="/css/edit-style.css" type="text/css">
     <link rel="stylesheet" href="/css/form-field-style.css" type="text/css">
-    <title>Document</title>
+    <link rel="icon" href="/assets/user.png" type="image/x-icon">
+    <title>Form</title>
 </head>
 <body>
     <%- include('./../components/navbar.ejs') %>
     <section>
-        <h1>Edit</h1>
+        <h1>Edit Form</h1>
         <form action="/admin/home/<%= person.id %>?_method=PUT" method="POST">
             <%- include('./../components/form_field.ejs') %>
         </form> 

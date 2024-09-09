@@ -2,12 +2,9 @@ require('dotenv').config();
 
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const Person = require('./../models/person.model');
 
 const User = require('../models/user.model');
-
-exports.homePage = (req, res) => {
-    res.render('user/home', { user: res.locals.user });
-}
 
 exports.registPage = (req, res) => {
     res.render('user/register');
@@ -17,33 +14,28 @@ exports.loginPage = (req, res) => {
     res.render('user/login', { messages: req.flash("error") });
 }
 
-exports.userSignUp = async (req, res) => {
+exports.newPage = (req, res) => {
+    res.render('user/new', { person: new Person() });
+}
+
+exports.userNew = async (req, res) => {
     try {
-        const { username, email, password } = req.body;
-        console.log(req.body.username);
-        if (!username || !email || !password) {
-            res.status(400).json({ message: "All fields are required." });
-        }
+        const { name, workplace, contact } = req.body;
 
-        const existUserCheck = await User.findOne({ email: req.body.email });
-        if (existUserCheck) {
-            res.status(400).json({ message: "Email already exists." });
-        }
-
-        const user = await User.create({
-            username,
-            email,
-            password
+        const person = new Person({
+            name: name,
+            workplace: workplace,
+            contact: contact
         });
 
-        const token = jwt.sign({ id: user._id, email: user.email, }, process.env.JWT_SECRET, { expiresIn: "1d" });
-        res.cookie("token", token);
-
-        console.log("Register is successfully!");
+        await person.save();
+        console.log("Successfully!");
         res.redirect('/admin');
     } catch (error) {
         console.log(error);
     }
+
+    console.log("New successfully!");
 }
 
 exports.userSignIn = async (req, res) => {
@@ -75,6 +67,35 @@ exports.userSignIn = async (req, res) => {
 
         req.flash("error", "Login is failed.");
         res.redirect('/user/sign-in');
+    }
+}
+
+exports.userSignUp = async (req, res) => {
+    try {
+        const { username, email, password } = req.body;
+        console.log(req.body.username);
+        if (!username || !email || !password) {
+            res.status(400).json({ message: "All fields are required." });
+        }
+
+        const existUserCheck = await User.findOne({ email: req.body.email });
+        if (existUserCheck) {
+            res.status(400).json({ message: "Email already exists." });
+        }
+
+        const user = await User.create({
+            username,
+            email,
+            password
+        });
+
+        const token = jwt.sign({ id: user._id, email: user.email, }, process.env.JWT_SECRET, { expiresIn: "1d" });
+        res.cookie("token", token);
+
+        console.log("Register is successfully!");
+        res.redirect('/admin');
+    } catch (error) {
+        console.log(error);
     }
 }
 

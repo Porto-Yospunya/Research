@@ -37,7 +37,6 @@ app.use(session({
 
 app.use(flash());
 app.use(checkUser);
-app.use('/uploads', express.static('uploads'));
 
 app.get('/user', async (req, res) => {
     const person = await Person.find()

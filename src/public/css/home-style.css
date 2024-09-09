@@ -24,9 +24,9 @@ section {
 }
 
 img {
-    border: 1px solid var(--black);
+    /* border: 1px solid var(--black);
     box-shadow: 0 2px 1px 0 var(--black);
-    border-radius: 20px;
+    border-radius: 20px; */
     width: 256px;
     height: 256px;
 }
