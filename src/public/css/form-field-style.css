@@ -91,7 +91,8 @@ form .container-btn {
 
 form a {
     text-decoration: none;
-    padding: 10px 40px;
+    padding: 10px 30px;
+    margin: 0 10px;
     background-color: var(--white);
     border: 1px solid var(--black);
     border-radius: 15px;
@@ -102,7 +103,8 @@ form a {
 }
 
 form button {
-    padding: 10px 50px;
+    padding: 10px 40px;
+    margin: 0 10px;
     border: none;
     background-color: var(--black);
     border-radius: 15px;
