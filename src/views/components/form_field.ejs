@@ -3,6 +3,11 @@
     <input type="text" name="name" id="name" placeholder="Name" value="<%= person.name %>" required>
 </div>
 
+<!-- <div class="form-position">
+    <label for="position"></label>
+    <input type="text" name="position" id="position" placeholder="Position" required>
+</div> -->
+
 <div class="form-workplace">
     <label for="workplace"></label>
     <textarea name="workplace" id="workplace" placeholder="Workplace / none" cols="20" rows="3"><%= person.workplace %></textarea>
@@ -14,10 +19,6 @@
 </div>
 
 <div class="container-btn">
-    <% if (user) { %>
-        <a href="/admin">Cancel</a>
-    <% } else { %>
-        <a href="/user">Cancel</a>
-    <% } %>
+    <a href="/user">Cancel</a>
     <button type="submit">Save</button>
 </div>

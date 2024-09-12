@@ -3,9 +3,10 @@
 :root {
     --white: #ffffff;
     --black: #000000;
-    --gray: #2e2e2e;
+    --gray: #454444;
     --red: #f85858;
     --green: #53f075;
+    --gray-blur: #8383838c;
 
     --font-kanit: "Kanit", sans-serif;
 }

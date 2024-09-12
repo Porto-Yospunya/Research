@@ -1,21 +1,43 @@
 @import './colors-fonts.css';
 
 section {
+    width: 100%;
     margin-top: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: center;    
     flex-wrap: wrap;
     flex-direction: row;
 }
 
-.container-box {
+.head {
+    width: 80%;
+    margin: 30px 0;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+}
+
+.head input {
+    width: 100%;
+    height: auto;
+    font-size: 1.4rem;
+    border: none;
+    border-bottom: 2px solid var(--black);
+}
+
+.container-box {
+    overflow: hidden;
+    display: flex;
     flex-direction: column;
-    margin: 10px 30px;
+    max-width: 40%;
+    min-width: 40%;
+    margin: 20px;
     padding: 25px;
     box-shadow: 0 2px 4px 0 var(--black);
     border-radius: 20px;
+}
+.container-box h4 {
+    color: var(--gray-blur);
 }
 
 .image {
@@ -27,8 +49,8 @@ img {
     /* border: 1px solid var(--black);
     box-shadow: 0 2px 1px 0 var(--black);
     border-radius: 20px; */
-    width: 256px;
-    height: 256px;
+    max-width: 50%;
+    min-width: 50%;
 }
 
 .name h3 {
@@ -51,11 +73,12 @@ section .container-btn {
     margin-top: 20px;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
 }
 
 .edit-btn {
-    padding: 10px 20px;
+    margin: 0 20px;
+    padding: 10px 40px;
     text-decoration: none;
     background-color: var(--green);
     border-radius: 15px;
@@ -65,7 +88,8 @@ section .container-btn {
 }
 
 .delete-btn {
-    padding: 10px 20px;
+    margin: 0 20px;
+    padding: 10px 40px;
     border: none;
     background-color: var(--red);
     border-radius: 15px;
@@ -86,12 +110,19 @@ section .container-btn {
 } */
 
 @media screen and (max-width: 480px) {
-    img {
-        width: 128px;
-        height: 128px;
+    .head input {
+        width: 70%;
+        font-size: .8rem;
+    }
+
+    .container-box {
+        max-width: 60%;
+        min-width: 60%;
+        margin: 10px;
     }
 
     .edit-btn, .delete-btn {
+        margin: 0 10px;
         padding: 6px 12px;
         border-radius: 8px;
         font-size: .8rem;

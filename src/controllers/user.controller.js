@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const path = require('path');
 const Person = require('./../models/person.model');
 
 const User = require('../models/user.model');
@@ -15,22 +16,21 @@ exports.loginPage = (req, res) => {
 }
 
 exports.newPage = (req, res) => {
-    res.render('user/new', { person: new Person() });
+    res.render('user/new', { person: new Person(), isNew: true });
 }
 
 exports.userNew = async (req, res) => {
     try {
         const { name, workplace, contact } = req.body;
-
-        const person = new Person({
+        
+        await Person.create({
             name: name,
             workplace: workplace,
-            contact: contact
+            contact: contact,
         });
 
-        await person.save();
         console.log("Successfully!");
-        res.redirect('/admin');
+        res.redirect('/user');
     } catch (error) {
         console.log(error);
     }

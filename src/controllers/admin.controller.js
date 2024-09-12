@@ -2,17 +2,17 @@ const Person = require('./../models/person.model');
 
 exports.editPage = async (req, res) => {
     const person = await Person.findById(req.params.id);
-    res.render('admin/edit', { person: person });
+    res.render('admin/edit', { person: person, isNew: false });
 }
 
 exports.adminEdit = async (req, res) => { 
     try {
         const { name, workplace, contact } = req.body;
-
+        
         await Person.findByIdAndUpdate(req.params.id, {
             name: name,
             workplace: workplace,
-            contact: contact
+            contact: contact,
         });
 
         res.redirect('/admin');
