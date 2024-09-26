@@ -10,36 +10,42 @@
 </head>
 <body>
     <%- include('./../components/navbar.ejs') %>
-    <section>
-        <div class="head">
-            <input type="text" placeholder="Search name and workplace">
-        </div>
-        <% persons.forEach(person => { %>
-            <div class="container-box">
-                <div class="image">
-                    <img src="/assets/profile.png">
-                </div>
-                <div class="name">
-                    <h3><%= person.name %></h3>
-                </div>
-                <div class="workplace">
-                    <h4>Workplace</h4>
-                    <p><%= person.workplace %></p>
-                </div>
-                <div class="contact">
-                    <h4>Contact</h4>
-                    <p><%= person.contact %></p>
-                </div>
-                <% if (user) { %>
-                    <div class="container-btn">
-                        <a class="edit-btn" href="/admin/edit/<%= person.id %>">Edit</a>
-                        <form action="/admin/home/<%= person.id %>?_method=DELETE" method="POST">
-                            <button class="delete-btn" type="submit">Delete</button>
-                        </form>
+    <form action="/user" method="post" class="head">
+        <input type="text" name="name" placeholder="Search name and workplace">
+    </form>
+    <% if (persons.length != 0) { %>
+        <section>
+            <% persons.forEach(person => { %>
+                <div class="container-box">
+                    <div class="image">
+                        <img src="/assets/profile.png">
                     </div>
-                <% } %>
+                    <div class="name">
+                        <h3><%= person.name %></h3>
+                    </div>
+                    <div class="workplace">
+                        <h4>Workplace</h4>
+                        <p><%= person.workplace %></p>
+                    </div>
+                    <div class="contact">
+                        <h4>Contact</h4>
+                        <p><%= person.contact %></p>
+                    </div>
+                    <% if (user) { %>
+                        <div class="container-btn">
+                            <a class="edit-btn" href="/admin/edit/<%= person.id %>">Edit</a>
+                            <form action="/admin/home/<%= person.id %>?_method=DELETE" method="POST">
+                                <button class="delete-btn" type="submit">Delete</button>
+                            </form>
+                        </div>
+                    <% } %>
+                </div>
+            <% }) %>
+            </section>
+        <% } else { %>
+            <div class="not-container">
+                <h1>Not Found</h1>
             </div>
-         <% }) %>
-    </section>
+        <% } %>
 </body>
 </html>

@@ -27,7 +27,8 @@
     "mongoose": "^8.5.4",
     "multer": "^1.4.5-lts.1",
     "path": "^0.12.7",
-    "session": "^0.1.0"
+    "session": "^0.1.0",
+    "website-person": "file:"
   },
   "devDependencies": {
     "nodemon": "^3.1.4"

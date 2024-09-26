@@ -19,6 +19,18 @@ exports.newPage = (req, res) => {
     res.render('user/new', { person: new Person(), isNew: true });
 }
 
+exports.userSearch = async (req, res) => {
+    try {
+        const { name } = req.body;
+        const personAll = await Person.find();
+        const person = await Person.find({ name: name });
+        
+        !name ? res.render('user/home', { persons: personAll }) : res.render('user/home', { persons: person });
+    } catch (error) {
+        
+    }
+}
+
 exports.userNew = async (req, res) => {
     try {
         const { name, workplace, contact } = req.body;

@@ -4,18 +4,21 @@ section {
     margin: 40px 0;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .container {
-    width: 60%;
     padding: 30px;
     border: 2px solid var(--black);
     border-radius: 10px;
+    /*background: linear-gradient(135deg, var(--gray) 0%, var(--white) 100%);*/
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
 }
 
 .container h1 {
     text-align: center;
     font-size: 3rem;
+    font-family: 'Kanit', sans-serif;
 }
 
 .form-group {
@@ -29,6 +32,16 @@ section {
     font-size: 1.4rem;
     border: none;
     border-bottom: 2px solid var(--black);
+}
+
+.form-group input,
+form .container-btn button {
+    transition: all 0.3s ease; /* เพิ่มความลื่นไหล */
+}
+
+.form-group input:focus {
+    border-bottom: 2px solid var(--blue); /* เปลี่ยนสีเส้นขอบ */
+    outline: none; /* ลบ outline เริ่มต้น */
 }
 
 form .container-btn {
@@ -46,6 +59,15 @@ form .container-btn button {
     border-radius: 10px;
     border: none;
     cursor: no-drop;
+}
+
+form .container-btn button:hover {
+    background-color: var(--gray); /* เปลี่ยนสีพื้นหลังเมื่อ hover */
+    transition: background-color 0.3s ease; /* เพิ่มความลื่นไหล */
+    background-color: var(--blueplus); /* เปลี่ยนสีพื้นหลัง */
+    color: var(--white); /* เปลี่ยนสีตัวอักษร */
+    transform: scale(1.05); /* ขยายขนาด */
+    transition: all 0.3s ease; /* เพิ่มการเปลี่ยนแปลง */
 }
 
 #sign-in {
@@ -72,7 +94,6 @@ form .container-btn button {
 @media screen and (max-width: 480px) {
     .container {
         padding: 20px;
-        width: 80%;
     }
 
     .container h1 {
@@ -97,5 +118,7 @@ form .container-btn button {
         margin-top: 5px;
         font-size: .6rem;
     }
+
+
     
 }

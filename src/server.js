@@ -12,8 +12,6 @@ const userRouter = require('./routes/user.route');
 const adminRouter = require('./routes/admin.route');
 const connectDB = require('./config/connectDB');
 const { checkUser, validateToken } = require('./middleware/auth');
-const userController = require('./controllers/user.controller');
-const adminController = require('./controllers/admin.controller');
 const Person = require('./models/person.model');
 
 const app = express();

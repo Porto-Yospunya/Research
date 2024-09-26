@@ -18,4 +18,6 @@ router.post('/sign-in', userController.userSignIn);
 
 router.get('/logout', userController.useSignOut);
 
+router.post('/', userController.userSearch);
+
 module.exports = router;

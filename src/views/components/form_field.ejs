@@ -3,11 +3,6 @@
     <input type="text" name="name" id="name" placeholder="Name" value="<%= person.name %>" required>
 </div>
 
-<!-- <div class="form-position">
-    <label for="position"></label>
-    <input type="text" name="position" id="position" placeholder="Position" required>
-</div> -->
-
 <div class="form-workplace">
     <label for="workplace"></label>
     <textarea name="workplace" id="workplace" placeholder="Workplace / none" cols="20" rows="3"><%= person.workplace %></textarea>
@@ -19,6 +14,10 @@
 </div>
 
 <div class="container-btn">
-    <a href="/user">Cancel</a>
-    <button type="submit">Save</button>
+    <a href="/user" class="cancel-btn">
+        <i class="fas fa-times"></i> Cancel
+    </a>
+    <button type="submit" class="save-btn">
+        <i class="fas fa-save"></i> Save
+    </button>
 </div>
