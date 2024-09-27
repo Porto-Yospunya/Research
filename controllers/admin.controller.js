@@ -2,7 +2,28 @@ const Person = require('./../models/person.model');
 
 exports.editPage = async (req, res) => {
     const person = await Person.findById(req.params.id);
-    res.render('admin/edit', { person: person, isNew: false });
+    res.render('admin/edit', { person: person });
+}
+
+exports.newPage = (req, res) => {
+    res.render('admin/new', { person: new Person() });
+}
+
+exports.adminNew = async (req, res) => {
+    try {
+        const { name, workplace, contact } = req.body;
+        
+        await Person.create({
+            name: name,
+            workplace: workplace,
+            contact: contact,
+        });
+
+        console.log("Successfully!");
+        res.redirect('/user');
+    } catch (error) {
+        res.render('components/error', { error: error });
+    }
 }
 
 exports.adminEdit = async (req, res) => { 
@@ -14,17 +35,21 @@ exports.adminEdit = async (req, res) => {
             workplace: workplace,
             contact: contact,
         });
-
-        res.redirect('/admin');
+        console.log("Edit successfully!");
+        res.redirect('/user');
     } catch (error) {
-        console.log(error);
+        res.render('components/error', { error: error });
     }
 
-    console.log("Edit successfully!");
+    
 }
 
 exports.adminDelete = async (req, res) => {
-    await Person.findByIdAndDelete(req.params.id);
-    console.log("Delete successfully!");
-    res.redirect('/admin');
+    try {
+        await Person.findByIdAndDelete(req.params.id);
+        console.log("Delete successfully!");
+        res.redirect('/user');
+    } catch (error) {
+        res.render('components/error', { error: error });
+    }
 }

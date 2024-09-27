@@ -1,5 +1,4 @@
-@import './colors-fonts.css';
-
+@import './root.css';
 nav {
     display: flex;
     justify-content: space-between;

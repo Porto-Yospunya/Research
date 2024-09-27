@@ -10,12 +10,12 @@
 </head>
 <body>
     <%- include('./../components/navbar.ejs') %>
-    <form action="/user" method="post" class="head">
-        <input type="text" name="name" placeholder="Search name and workplace">
+    <form action="/user" method="get" class="head">
+        <input type="text" name="search" placeholder="Search name">
     </form>
-    <% if (persons.length != 0) { %>
+    <% if (response.persons.length != 0) { %>
         <section>
-            <% persons.forEach(person => { %>
+            <% response.persons.forEach(person => { %>
                 <div class="container-box">
                     <div class="image">
                         <img src="/assets/profile.png">
@@ -47,5 +47,7 @@
                 <h1>Not Found</h1>
             </div>
         <% } %>
+
+        <%- include('./../components/pagination') %>
 </body>
 </html>

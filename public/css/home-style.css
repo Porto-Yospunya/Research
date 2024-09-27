@@ -1,4 +1,4 @@
-@import './colors-fonts.css';
+@import './root.css';
 
 section {
     margin: 20px 40px;
@@ -87,6 +87,8 @@ section .container-btn {
 }
 
 .edit-btn {
+    display: flex;
+    align-self: center;
     margin: 0 20px;
     padding: 10px 40px;
     text-decoration: none;
@@ -99,6 +101,8 @@ section .container-btn {
 }
 
 .delete-btn {
+    display: flex;
+    align-self: center;
     margin: 0 20px;
     padding: 10px 40px;
     border: none;
@@ -120,6 +124,34 @@ section .container-btn {
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.pagination {
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.pagination input {
+    transition: .3s ease-in-out;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin: 10px 6px;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+}
+
+.pagination .is-page {
+    background-color: var(--gray);
+    color: var(--white);
+}
+
+.pagination input:hover:not(.is-page) {
+    background-color: var(--gray-blur);
 }
 
 /* img:hover {
@@ -153,6 +185,16 @@ section .container-btn {
 
     .container-box p {
         font-size: .8rem;
+    }
+
+    .edit-btn {
+        padding: 5px 20px;
+        font-size: 1rem;
+    }
+
+    .delete-btn {
+        padding: 5px 20px;
+        font-size: 1rem;
     }
 }   
 

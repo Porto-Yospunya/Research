@@ -7,12 +7,13 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const flash = require('connect-flash');
+const cors = require('cors');
 
 const userRouter = require('./routes/user.route');
 const adminRouter = require('./routes/admin.route');
+const errorRouter = require('./routes/error.route');
 const connectDB = require('./config/connectDB');
-const { checkUser, validateToken } = require('./middleware/auth');
-const Person = require('./models/person.model');
+const { checkUser } = require('./middleware/auth');
 
 const app = express();
  
@@ -26,6 +27,7 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(cors());
 app.use(session({
     secret: process.env.JWT_SECRET,
     resave: false,
@@ -36,21 +38,12 @@ app.use(session({
 app.use(flash());
 app.use(checkUser);
 
-app.get('/user', async (req, res) => {
-    const person = await Person.find()
-    res.render('user/home', { persons: person });
-});
-
-app.get('/admin', validateToken, async (req, res) => {
-    const person = await Person.find()
-    res.render('user/home', { persons: person });
-});
-
 app.use('/user', userRouter);
 app.use('/admin', adminRouter);
+app.use('/error', errorRouter);
 
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => {
-    console.log(`Server is running on port: ${PORT}`);
+    console.log(`Server is running on http://localhost:${PORT}/user`);
 });

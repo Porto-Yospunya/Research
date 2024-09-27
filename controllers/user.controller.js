@@ -2,10 +2,33 @@ require('dotenv').config();
 
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
-const path = require('path');
 const Person = require('./../models/person.model');
 
 const User = require('../models/user.model');
+
+exports.homePage = async (req, res) => {
+    try {
+        const limit = 5
+        const search = req.query.search || "";
+        const pageNumbers = parseInt(req.query.page) || 1;
+
+        const personSearch = await Person.find({ name: {$regex: search, $options: "i"} });
+        
+        const page = Math.ceil(personSearch.length / limit);
+
+        const persons = personSearch.slice(pageNumbers == 1 ? pageNumbers - 1 : (pageNumbers - 1) * limit, pageNumbers * limit)
+
+        const response = {
+            persons: persons,
+            page: page,
+            isPage: pageNumbers,
+        }
+
+        res.render('user/home', { response });
+    } catch (error) {
+        res.render('components/error', { error: error });
+    }
+}
 
 exports.registPage = (req, res) => {
     res.render('user/register');
@@ -13,41 +36,6 @@ exports.registPage = (req, res) => {
 
 exports.loginPage = (req, res) => {
     res.render('user/login', { messages: req.flash("error") });
-}
-
-exports.newPage = (req, res) => {
-    res.render('user/new', { person: new Person(), isNew: true });
-}
-
-exports.userSearch = async (req, res) => {
-    try {
-        const { name } = req.body;
-        const personAll = await Person.find();
-        const person = await Person.find({ name: name });
-        
-        !name ? res.render('user/home', { persons: personAll }) : res.render('user/home', { persons: person });
-    } catch (error) {
-        
-    }
-}
-
-exports.userNew = async (req, res) => {
-    try {
-        const { name, workplace, contact } = req.body;
-        
-        await Person.create({
-            name: name,
-            workplace: workplace,
-            contact: contact,
-        });
-
-        console.log("Successfully!");
-        res.redirect('/user');
-    } catch (error) {
-        console.log(error);
-    }
-
-    console.log("New successfully!");
 }
 
 exports.userSignIn = async (req, res) => {
@@ -64,7 +52,7 @@ exports.userSignIn = async (req, res) => {
                 res.cookie("token", token);
 
                 console.log("Login is successfully!");
-                res.redirect('/admin');
+                res.redirect('/user');
             } else {
                 req.flash("error", "Incorrect password.");
                 res.redirect('/user/sign-in');
@@ -105,14 +93,18 @@ exports.userSignUp = async (req, res) => {
         res.cookie("token", token);
 
         console.log("Register is successfully!");
-        res.redirect('/admin');
+        res.redirect('/user');
     } catch (error) {
-        console.log(error);
+        res.render('components/error', { error: error });
     }
 }
 
 exports.useSignOut = (req, res) => {
-    res.cookie("token", "", { maxAge: 1 });
-    console.log("Log Out.");
-    res.redirect("/user");
+    try {
+        res.cookie("token", "", { maxAge: 1 });
+        console.log("Log Out.");
+        res.redirect("/user");
+    } catch (error) {
+        res.render('components/error', { error: error });
+    }
 };
