@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/navbar-style.css" type="text/css">
     <link rel="stylesheet" href="/css/register-login-style.css" type="text/css">
+    <link rel="stylesheet" href="/css/loading-style.css" type="text/css">
     <link rel="icon" href="/assets/user.png" type="image/x-icon">
     <title>Sign Up</title>
 </head>
 <body>
+
+    <%- include('./../components/loading.ejs') %>
+
     <%- include('./../components/navbar.ejs') %>
+    
     <section>
         <div class="container">
             <h1>Sign Up</h1>
@@ -42,5 +47,6 @@
             <p>Already have an account? <a href="/user/sign-in">Sign In</a></p>
         </div>
     </section>
+    <script src="/js/loading-script.js"></script>
 </body>
 </html>

@@ -3,12 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/user.png" type="image/x-icon">
     <link rel="stylesheet" href="/css/error-style.css">
+    <link rel="stylesheet" href="/css/loading-style.css" type="text/css">
     <title>404</title>
 </head>
 <body>
-    <h1>Error</h1>
-    <p><%= error %></p>
-    <a href="/user">Back to Home</a>
+
+    <%- include('./../components/loading.ejs') %>
+
+    <div class="error-container">
+        <h1>404</h1>
+        <h3>Oops!</h3>
+        <p>Error 404 - Page Not Found</p>
+        <a href="/user">Back to Home</a>
+    </div>
+    <script src="/js/loading-script.js"></script>
 </body>
 </html>

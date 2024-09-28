@@ -4,18 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/navbar-style.css" type="text/css">
-    <link rel="stylesheet" href="/css/edit-style.css" type="text/css">
     <link rel="stylesheet" href="/css/form-field-style.css" type="text/css">
+    <link rel="stylesheet" href="/css/loading-style.css" type="text/css">
     <link rel="icon" href="/assets/user.png" type="image/x-icon">
-    <title>Form</title>
+    <title>Form Edit</title>
 </head>
 <body>
+
+    <%- include('./../components/loading.ejs') %>
+
     <%- include('./../components/navbar.ejs') %>
+    
     <section>
-        <h1>Edit Form</h1>
+        <h1><%= person.name %></h1>
         <form action="/admin/home/<%= person.id %>?_method=PUT" method="POST">
             <%- include('./../components/form_field.ejs') %>
+        </form>
+        <form action="/admin/edit/<%= person.id %>?_method=DELETE" method="POST" class="btn-del">
+            <button class="delete-btn" type="submit">Delete</button>
         </form> 
     </section>
+    <script src="/js/loading-script.js"></script>
 </body>
 </html>

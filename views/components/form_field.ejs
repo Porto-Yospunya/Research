@@ -1,16 +1,16 @@
 <div class="form-name">
     <label for="name"></label>
-    <input type="text" name="name" id="name" placeholder="Name" value="<%= person.name %>" required>
+    <input autocomplete="off" type="text" name="name" id="name" placeholder="Name" value="<%= person.name %>" required>
 </div>
 
 <div class="form-workplace">
     <label for="workplace"></label>
-    <textarea name="workplace" id="workplace" placeholder="Workplace / none" cols="20" rows="3"><%= person.workplace %></textarea>
+    <textarea autocomplete="off" name="workplace" id="workplace" placeholder="Workplace / none" cols="20" rows="3"><%= person.workplace %></textarea>
 </div>
 
 <div class="form-contact">
     <label for="contact"></label>
-    <textarea name="contact" id="contact" placeholder="Contact / none" cols="20" rows="3"><%= person.contact %></textarea>
+    <textarea autocomplete="off" name="contact" id="contact" placeholder="Contact / none" cols="20" rows="3"><%= person.contact %></textarea>
 </div>
 
 <div class="container-btn">

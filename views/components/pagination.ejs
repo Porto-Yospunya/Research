@@ -1,9 +1,0 @@
-<form class="pagination" action="/user" method="get">
-    <% for (let i = 1; i <= response.page; i++) { %>
-        <% if (response.isPage == i) { %>
-            <input class="is-page" type="submit" name="page" value="<%= i %>" placeholder="<%= i %>">
-        <% } else { %>
-            <input type="submit" name="page" value="<%= i %>" placeholder="<%= i %>">
-        <% } %>
-    <% } %>
-</form>

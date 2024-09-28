@@ -6,16 +6,22 @@
     <link rel="stylesheet" href="/css/navbar-style.css" type="text/css">
     <link rel="stylesheet" href="/css/new-style.css" type="text/css">
     <link rel="stylesheet" href="/css/form-field-style.css" type="text/css">
+    <link rel="stylesheet" href="/css/loading-style.css" type="text/css">
     <link rel="icon" href="/assets/user.png" type="image/x-icon">
-    <title>Form</title>
+    <title>Form New</title>
 </head>
 <body>
+
+    <%- include('./../components/loading.ejs') %>
+
     <%- include('./../components/navbar.ejs') %>
+    
     <section>
         <h1>Add Form</h1>
         <form action="/admin/home" method="POST">
             <%- include('./../components/form_field.ejs') %>
         </form> 
     </section>
+    <script src="/js/loading-script.js"></script>
 </body>
 </html>

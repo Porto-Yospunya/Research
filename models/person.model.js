@@ -7,11 +7,11 @@ const personSchema = new mongoose.Schema({
     },
     workplace: {
         type: String,
-        required: false,
+        required: true,
     },
     contact: {
         type: String,
-        required: false,
+        required: true,
     },
 });
 

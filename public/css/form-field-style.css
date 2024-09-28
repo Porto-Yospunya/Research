@@ -4,14 +4,15 @@ section {
     display: grid;
     text-align: center;
     justify-content: center;
+    gap: 20px;
 }
 
 section h1 {
-    margin: 30px;
+    margin: 20px;
     font-size: 2rem;
 }
 
-form {  
+form:not(.btn-del) {  
     padding: 40px;
     display: flex; 
     flex-direction: column;
@@ -114,7 +115,31 @@ form button {
     cursor: pointer;
 }
 
+.delete-btn {
+    display: flex;
+    align-self: center;
+    margin: 0 20px;
+    padding: 10px 40px;
+    border: none;
+    background-color: var(--red);
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--black);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-btn {
+    display: block;
+    margin: auto;
+}
+
 @media screen and (max-width: 768px) {
+    section {
+        gap: 5px;
+    }
+
     form {
         padding: 30px;
         margin: 0 20px;
@@ -146,6 +171,12 @@ form button {
         margin: 5px 0;
         font-size: .8rem;
     }
+
+    .delete-btn {
+        padding: 5px 20px;
+        font-size: 1rem;
+    }
+
 }   
 
 .form-name input:focus, .form-position input:focus {
@@ -174,3 +205,7 @@ input:focus, textarea:focus {
     transform: scale(1.05);
 }
 
+.delete-btn:hover {
+    transition: 300ms;
+    transform: scale(1.05);
+}

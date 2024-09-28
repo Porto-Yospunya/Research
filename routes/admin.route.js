@@ -12,6 +12,6 @@ router.post("/home", validateToken, adminController.adminNew);
 
 router.put("/home/:id", validateToken, adminController.adminEdit);
 
-router.delete("/home/:id", validateToken, adminController.adminDelete);
+router.delete("/edit/:id", validateToken, adminController.adminDelete);
 
 module.exports = router;

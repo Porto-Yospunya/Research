@@ -8,6 +8,7 @@ section {
 }
 
 .container {
+    width: 400px;
     padding: 30px;
     border: 2px solid var(--black);
     border-radius: 10px;
@@ -93,7 +94,7 @@ form .container-btn button:hover {
 
 @media screen and (max-width: 480px) {
     .container {
-        padding: 20px;
+        width: 300px;
     }
 
     .container h1 {
@@ -118,7 +119,4 @@ form .container-btn button:hover {
         margin-top: 5px;
         font-size: .6rem;
     }
-
-
-    
 }

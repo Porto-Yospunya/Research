@@ -12,18 +12,23 @@ section {
     width: 100%;
     margin: 30px 0;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     margin-bottom: 30px;
 }
 
-.head input {
+.head .search-container {
     width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.head .search-container input {
+    width: 70%;
     height: auto;
     font-size: 1.4rem;
     border: none;
     border-bottom: 2px solid var(--black);
     padding: 10px;
-    width: 60%;
     font-size: 16px;
     border: 2px solid #ddd;
     border-radius: 20px;
@@ -100,22 +105,7 @@ section .container-btn {
     transition: background-color 0.3s ease;
 }
 
-.delete-btn {
-    display: flex;
-    align-self: center;
-    margin: 0 20px;
-    padding: 10px 40px;
-    border: none;
-    background-color: var(--red);
-    border-radius: 15px;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--black);
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.edit-btn:hover, .delete-btn:hover {
+.edit-btn:hover {
     transition: 300ms;
     transform: scale(1.05);
 }
@@ -127,7 +117,7 @@ section .container-btn {
 }
 
 .pagination {
-    margin: 30px;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -154,11 +144,6 @@ section .container-btn {
     background-color: var(--gray-blur);
 }
 
-/* img:hover {
-    transition: 300ms;
-    transform: scale(1.05);
-} */
-
 @media screen and (max-width: 768px) {
     section {
         margin: 10px 0;
@@ -170,14 +155,8 @@ section .container-btn {
     }
 
     .head input {
-        width: 70%;
         font-size: .8rem;
     }   
-
-    .head input {
-        width: 90%;
-        font-size: 1rem;
-    }
 
     .container-box h3 {
         font-size: 1.4rem;
@@ -191,10 +170,10 @@ section .container-btn {
         padding: 5px 20px;
         font-size: 1rem;
     }
-
-    .delete-btn {
-        padding: 5px 20px;
-        font-size: 1rem;
+    
+    .pagination input {
+        width: 30px;
+        height: 30px;
     }
 }   
 

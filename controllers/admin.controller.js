@@ -22,7 +22,7 @@ exports.adminNew = async (req, res) => {
         console.log("Successfully!");
         res.redirect('/user');
     } catch (error) {
-        res.render('components/error', { error: error });
+        res.render('components/error');
     }
 }
 
@@ -38,7 +38,7 @@ exports.adminEdit = async (req, res) => {
         console.log("Edit successfully!");
         res.redirect('/user');
     } catch (error) {
-        res.render('components/error', { error: error });
+        res.render('components/error');
     }
 
     
@@ -50,6 +50,6 @@ exports.adminDelete = async (req, res) => {
         console.log("Delete successfully!");
         res.redirect('/user');
     } catch (error) {
-        res.render('components/error', { error: error });
+        res.render('components/error');
     }
 }

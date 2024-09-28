@@ -8,7 +8,7 @@ const User = require('../models/user.model');
 
 exports.homePage = async (req, res) => {
     try {
-        const limit = 5
+        const limit = 12;
         const search = req.query.search || "";
         const pageNumbers = parseInt(req.query.page) || 1;
 
@@ -26,7 +26,7 @@ exports.homePage = async (req, res) => {
 
         res.render('user/home', { response });
     } catch (error) {
-        res.render('components/error', { error: error });
+        res.render('components/error');
     }
 }
 
@@ -95,7 +95,7 @@ exports.userSignUp = async (req, res) => {
         console.log("Register is successfully!");
         res.redirect('/user');
     } catch (error) {
-        res.render('components/error', { error: error });
+        res.render('components/error');
     }
 }
 
@@ -105,6 +105,6 @@ exports.useSignOut = (req, res) => {
         console.log("Log Out.");
         res.redirect("/user");
     } catch (error) {
-        res.render('components/error', { error: error });
+        res.render('components/error');
     }
 };

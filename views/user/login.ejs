@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/register-login-style.css" type="text/css">
     <link rel="stylesheet" href="/css/navbar-style.css" type="text/css">
+    <link rel="stylesheet" href="/css/loading-style.css" type="text/css">
     <link rel="icon" href="/assets/user.png" type="image/x-icon">
     <title>Sgin In</title>
 </head>
 <body>
+
+    <%- include('./../components/loading.ejs') %>
+
     <%- include('./../components/navbar.ejs') %>
+    
     <div class="container-alert">
         <% if (messages.length > 0) { %>
             <div class="alert"><%= messages %></div>
@@ -21,12 +26,12 @@
             <form action="/user/sign-in" method="POST">
                 <div class="form-group">
                     <label for="email"></label>
-                    <input required type="email" name="email" id="email" placeholder="Email Address">
+                    <input required autocomplete="off" type="email" name="email" id="email" placeholder="Email Address">
                 </div>
                 
                 <div class="form-group">
                     <label for="password"></label>
-                    <input required type="password" name="password" id="username" placeholder="Password">
+                    <input required autocomplete="off" type="password" name="password" id="username" placeholder="Password">
                 </div>
                 
                 <div class="container-btn">
@@ -36,5 +41,6 @@
             <!-- <p>Don't have an account? <a href="/user/sign-up">Sign Up</a></p> -->
         </div>
     </section>
+    <script src="/js/loading-script.js"></script>
 </body>
 </html>
