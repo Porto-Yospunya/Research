@@ -1,6 +1,7 @@
 @import './root.css';
 
 section {
+    position: relative;
     display: grid;
     text-align: center;
     justify-content: center;
@@ -12,7 +13,7 @@ section h1 {
     font-size: 2rem;
 }
 
-form:not(.btn-del) {  
+form:not(.btn-del) {
     padding: 40px;
     display: flex; 
     flex-direction: column;
@@ -57,7 +58,7 @@ form:not(.btn-del) {
     margin-top: 20px;
 }
 
-.form-name input, .form-position input {
+.form-name input, .form-role input, .form-position input {
     margin: 10px;
     font-size: 1.2rem;
     width: 100%;
@@ -103,6 +104,22 @@ form a {
     cursor: pointer;
 }
 
+.btn-del {
+    position: absolute;
+    margin: 20px;
+}
+
+.delete-btn {
+    border-radius: 50%;
+    padding: 0;
+    margin: 0;
+    width: 40px;
+    height: 40px;
+    background: none;
+    color: var(--black);
+    font-size: 1.6rem;
+}
+
 form button {
     padding: 10px 40px;
     margin: 0 10px;
@@ -115,25 +132,6 @@ form button {
     cursor: pointer;
 }
 
-.delete-btn {
-    display: flex;
-    align-self: center;
-    margin: 0 20px;
-    padding: 10px 40px;
-    border: none;
-    background-color: var(--red);
-    border-radius: 15px;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--black);
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.delete-btn {
-    display: block;
-    margin: auto;
-}
 
 @media screen and (max-width: 768px) {
     section {
@@ -163,7 +161,7 @@ form button {
         font-size: 1.2rem;
     }
 
-    .form-name input, .form-position input {
+    .form-name input, .form-role, .form-position input {
         margin: 5px 0;
     }
 
@@ -172,14 +170,12 @@ form button {
         font-size: .8rem;
     }
 
-    .delete-btn {
-        padding: 5px 20px;
-        font-size: 1rem;
+    .btn-del {
+        margin: 0;
     }
-
 }   
 
-.form-name input:focus, .form-position input:focus {
+.form-name input:focus, .form-role input:focus, .form-position input:focus {
     transition: 300ms;
     transform: scale(1.05);
 }
@@ -208,4 +204,5 @@ input:focus, textarea:focus {
 .delete-btn:hover {
     transition: 300ms;
     transform: scale(1.05);
+    background-color: var(--red);
 }

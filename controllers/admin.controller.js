@@ -11,12 +11,13 @@ exports.newPage = (req, res) => {
 
 exports.adminNew = async (req, res) => {
     try {
-        const { name, workplace, contact } = req.body;
+        const { name, workplace, contact, roles } = req.body;
         
         await Person.create({
             name: name,
             workplace: workplace,
             contact: contact,
+            roles: roles,
         });
 
         console.log("Successfully!");
@@ -28,12 +29,13 @@ exports.adminNew = async (req, res) => {
 
 exports.adminEdit = async (req, res) => { 
     try {
-        const { name, workplace, contact } = req.body;
+        const { name, workplace, contact, roles } = req.body;
         
         await Person.findByIdAndUpdate(req.params.id, {
             name: name,
             workplace: workplace,
             contact: contact,
+            roles: roles,
         });
         console.log("Edit successfully!");
         res.redirect('/user');

@@ -17,12 +17,12 @@
     
     <section>
         <h1><%= person.name %></h1>
+        <form action="/admin/edit/<%= person.id %>?_method=DELETE" method="POST" class="btn-del">
+            <button class="delete-btn" type="submit">X</button>
+        </form> 
         <form action="/admin/home/<%= person.id %>?_method=PUT" method="POST">
             <%- include('./../components/form_field.ejs') %>
         </form>
-        <form action="/admin/edit/<%= person.id %>?_method=DELETE" method="POST" class="btn-del">
-            <button class="delete-btn" type="submit">Delete</button>
-        </form> 
     </section>
     <script src="/js/loading-script.js"></script>
 </body>

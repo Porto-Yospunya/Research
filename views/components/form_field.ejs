@@ -3,6 +3,11 @@
     <input autocomplete="off" type="text" name="name" id="name" placeholder="Name" value="<%= person.name %>" required>
 </div>
 
+<div class="form-name">
+    <label for="roles"></label>
+    <input autocomplete="off" type="text" name="roles" id="roles" placeholder="Role" value="<%= person.roles %>" required>
+</div>
+
 <div class="form-workplace">
     <label for="workplace"></label>
     <textarea autocomplete="off" name="workplace" id="workplace" placeholder="Workplace / none" cols="20" rows="3"><%= person.workplace %></textarea>
