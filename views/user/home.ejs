@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/css/home-style.css" type="text/css">
     <link rel="stylesheet" href="/css/navbar-style.css" type="text/css">
     <link rel="stylesheet" href="/css/loading-style.css" type="text/css">
+    <link rel="stylesheet" href="/css/profile-style.css" type="text/css">
     <link rel="icon" href="/assets/user.png" type="image/x-icon">
     <% if (user) { %>
         <title>Research - Admin</title>
@@ -19,6 +20,8 @@
 
     <%- include('./../components/navbar.ejs') %>
 
+    <%- include('./../components/profile.ejs') %>
+
     <form action="/user" method="get" class="head">
         <div class="search-container">
             <input autocomplete="off" type="text" name="search" placeholder="Search name">
@@ -26,31 +29,31 @@
         <% if (response.persons.length != 0) { %>
             <section>
                 <% response.persons.forEach(person => { %>
-                <div class="container-box">
-                    <div class="image">
-                        <img src="/assets/profile.png">
-                    </div>
-                    <div class="name">
-                        <h3><%= person.name %></h3>
-                    </div>
-                    <div class="role">
-                        <h4>Role</h4>
-                        <p><%= person.roles %></p>
-                    </div>
-                    <div class="workplace">
-                        <h4>Workplace</h4>
-                        <p><%= person.workplace %></p>
-                    </div>
-                    <div class="contact">
-                        <h4>Contact</h4>
-                        <p><%= person.contact %></p>
-                    </div>
-                    <% if (user) { %>
-                        <div class="container-btn">
-                            <a class="edit-btn" href="/admin/edit/<%= person.id %>">Edit</a>
+                    <button class="container-box" type="button">
+                        <div class="image">
+                            <img src="/assets/profile.png">
                         </div>
-                    <% } %>
-                </div>
+                        <div class="name">
+                            <h3 class="n" id="name"><%= person.name %></h3>
+                        </div>
+                        <div class="role">
+                            <h4>Role</h4>
+                            <p class="r" id="role"><%= person.roles %></p>
+                        </div>
+                        <div class="workplace">
+                            <h4>Workplace</h4>
+                            <p class="w" id="workplace"><%= person.workplace %></p>
+                        </div>
+                        <div class="contact">
+                            <h4>Contact</h4>
+                            <p class="c" id="contact"><%= person.contact %></p>
+                        </div>
+                        <% if (user) { %>
+                            <div class="container-btn-edit">
+                                <a href="/admin/edit/<%= person.id %>">&#9998</a>
+                            </div>
+                        <% } %>
+                    </button>
                 <% }) %>
             </section>
         <% } else { %>
@@ -70,5 +73,6 @@
         </div>
     </form>
     <script src="/js/loading-script.js"></script>
+    <script src="/js/home-script.js"></script>
 </body>
 </html>

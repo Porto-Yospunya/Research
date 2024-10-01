@@ -38,4 +38,4 @@ const checkUser = (req, res, next) => {
     }
 };
 
-module.exports ={ validateToken, checkUser };
+module.exports = { validateToken, checkUser };

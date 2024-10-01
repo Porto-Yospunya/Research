@@ -5,7 +5,7 @@ section {
     display: grid;
     justify-content: center;
     gap: 20px;
-    grid-template-columns: repeat(auto-fill, minmax(400px, 400px));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
 }
 
 .head {
@@ -41,14 +41,19 @@ section {
 }
 
 .container-box {
+    position: relative;
+    cursor: pointer;
+    border: none;
+    background: var(--white);
     justify-self: center;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    max-width: 400px;
+    max-width: 280px;
     padding: 25px;
     box-shadow: 0 2px 4px 0 var(--black);
     border-radius: 20px;
+    z-index: 3;
 }
 
 .container-box h4 {
@@ -68,51 +73,48 @@ img {
     min-width: 50%;
 }
 
+.name {
+    width: 100%;
+}
+
 .name h3 {
+    overflow: hidden;
+    text-overflow: ellipsis; 
     text-align: center;
     margin: 10px 0;
     font-size: 2rem;
 }
 
-.role p {
-    margin: 10px 0;
-    font-size: 1.2rem;  
+.role h4, .workplace h4, .contact h4 {
+    text-align: start;
 }
 
-.workplace p {
-    margin: 10px 0;
-    font-size: 1.2rem;
-}
-
-.contact p {
+.role p, .workplace p, .contact p {
+    width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    text-align: start;
     margin: 10px 0;
     font-size: 1.2rem;
 }
 
-section .container-btn {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
+.container-btn-edit {
+    top: 15px;
+    left: 8px;
+    position: absolute;
+    z-index: 5;
 }
 
-.edit-btn {
-    display: flex;
-    align-self: center;
-    margin: 0 20px;
-    padding: 10px 40px;
-    text-decoration: none;
-    background-color: var(--blue);
-    border-radius: 15px;
+.container-btn-edit a {
+    padding: 13px;
     font-size: 1.2rem;
-    font-weight: 600;
     color: var(--black);
-    transition: background-color 0.3s ease;
 }
 
-.edit-btn:hover {
+.container-btn-edit a:hover {
     transition: 300ms;
     transform: scale(1.05);
+    color: var(--blue);
 }
 
 .not-container {
@@ -152,11 +154,11 @@ section .container-btn {
 @media screen and (max-width: 768px) {
     section {
         margin: 10px 0;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(240px, 240px));
     }
 
     .container-box {
-        max-width: 280px;
+        max-width: 240px;
     }
 
     .head input {
@@ -171,11 +173,6 @@ section .container-btn {
         font-size: .8rem;
     }
 
-    .edit-btn {
-        padding: 5px 20px;
-        font-size: 1rem;
-    }
-    
     .pagination input {
         width: 30px;
         height: 30px;

@@ -1,0 +1,43 @@
+@import './root.css';
+
+.alert-success {
+    border-radius: 20px;
+    margin: 20px 0;
+    padding: 10px;
+    width: 30%;
+    height: auto;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--green);
+    transition: .3s ease-in-out;
+    z-index: 2;
+}
+
+.alert-success .content-container {
+    display: flex;
+}
+
+.alert-success .content-container h3 {
+    margin: 0 5px;
+}
+
+.alert-success button {
+    cursor: pointer;
+    font-size: 1rem;
+    margin: 0 20px;
+    border: none;
+    background: none;
+}
+
+.alert-success-hidden {
+    bottom: -100vh;
+}
+
+@media screen and (max-width: 768px) {
+    .alert-success {
+        width: 50%;
+    }
+}

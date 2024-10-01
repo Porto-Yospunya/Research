@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/css/navbar-style.css" type="text/css">
     <link rel="stylesheet" href="/css/form-field-style.css" type="text/css">
     <link rel="stylesheet" href="/css/loading-style.css" type="text/css">
+    <link rel="stylesheet" href="/css/alert-style.css" type="text/css">
     <link rel="icon" href="/assets/user.png" type="image/x-icon">
     <title>Form Edit</title>
 </head>
@@ -16,14 +17,30 @@
     <%- include('./../components/navbar.ejs') %>
     
     <section>
+        <div class="alert-delete alert-hidden" id="alert">
+            <div class="alert">
+                <div class="alert-container">
+                    <h1>&#9888 Are you sure?</h1>
+                    <p>Are you sure you want to delete this data?</p>
+                </div>
+                <div class="btn-container">
+                    <button class="alert-cancel-btn">Cancel</button>
+                    <form action="/admin/edit/<%= person.id %>?_method=DELETE" method="POST" class="btn-del">
+                        <button class="alert-delete-btn" type="submit">Delete</button>
+                    </form> 
+                </div>
+            </div>
+        </div>
         <h1><%= person.name %></h1>
-        <form action="/admin/edit/<%= person.id %>?_method=DELETE" method="POST" class="btn-del">
-            <button class="delete-btn" type="submit">X</button>
-        </form> 
         <form action="/admin/home/<%= person.id %>?_method=PUT" method="POST">
+            <button class="delete-btn" type="button">&#10005</button>
             <%- include('./../components/form_field.ejs') %>
         </form>
+
+        <%- include('./../components/alert.ejs') %>
+
     </section>
     <script src="/js/loading-script.js"></script>
+    <script src="/js/alert-script.js"></script>
 </body>
 </html>
